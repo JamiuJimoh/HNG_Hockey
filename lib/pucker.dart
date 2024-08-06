@@ -7,25 +7,23 @@ class Pucker extends StatelessWidget {
     required this.size,
     required this.x,
     required this.y,
+    this.color,
   });
   final double size;
   final double x;
   final double y;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (_, constraints) {
-        return Container(
-          width: size,
-          height: size,
-          transform: Matrix4.translationValues(x, y, 0),
-          decoration: BoxDecoration(
-            color: Palette.player,
-            borderRadius: BorderRadius.circular(size),
-          ),
-        );
-      },
+    return Container(
+      width: size,
+      height: size,
+      transform: Matrix4.translationValues(x, y, 0),
+      decoration: BoxDecoration(
+        color: color ?? Palette.player,
+        borderRadius: BorderRadius.circular(size),
+      ),
     );
   }
 }
