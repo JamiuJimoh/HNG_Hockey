@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:hockey/animation.dart';
-import 'package:hockey/game_intructions.dart';
+import 'package:hockey/game_instructions.dart';
 import 'package:hockey/select_game.dart';
 
 class Menu extends StatefulWidget {
@@ -143,8 +143,6 @@ class _MenuState extends State<Menu> with SingleTickerProviderStateMixin {
             colors: [
               Color.fromARGB(255, 154, 184, 243),
               Color.fromARGB(255, 208, 223, 238)
-              // Color(0xFF002060),
-              // Color(0xFF0050A0),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

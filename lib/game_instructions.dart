@@ -11,20 +11,20 @@ class GameInstructions extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              "assets/images/stadium.png", // Update with your image path
+              "assets/images/stadium.png", 
               fit: BoxFit.cover,
             ),
           ),
           Container(
             width: double.infinity,
             height: double.infinity,
-            color: Colors.white.withOpacity(0.3), // Semi-transparent overlay
+            color: Colors.white.withOpacity(0.3), 
           ),
           Column(
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.only(top: 30.0), // Add some top padding
+                    const EdgeInsets.only(top: 30.0), 
                 child: Center(
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -49,7 +49,7 @@ class GameInstructions extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(), // Pushes the game instructions to the center
+              const Spacer(), 
               const Center(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
@@ -60,7 +60,7 @@ class GameInstructions extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(), // Pushes the back button to the bottom
+              const Spacer(), 
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: _buildButton(
@@ -134,8 +134,7 @@ class GameInstructions extends StatelessWidget {
             colors: [
               Color.fromARGB(255, 154, 184, 243),
               Color.fromARGB(255, 208, 223, 238)
-              // Color(0xFF002060),
-              // Color(0xFF0050A0),
+              
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -162,7 +161,7 @@ class GameInstructions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (icon != null) Icon(icon, color: Colors.black),
-              const SizedBox(width: 10), // Space between icon and text
+              const SizedBox(width: 10),
               Text(
                 text,
                 style: const TextStyle(
