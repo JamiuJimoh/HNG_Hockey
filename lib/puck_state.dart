@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:hockey/main.dart';
 import 'package:hockey/pucker1_state.dart';
 import 'package:vector_math/vector_math.dart' as vec;
 
@@ -66,7 +67,6 @@ class PuckState extends ChangeNotifier {
       _prevPositionY = y;
       y = puckPosition.dy + (_velocity * deltaTime);
     }
-    // }
 
     if (detectPucker1Collision()) {
       final contactPoint = handlePucker1Collision();
@@ -82,7 +82,6 @@ class PuckState extends ChangeNotifier {
         y = (puckPosition.dy) + (_velocity * deltaTime);
       }
     } else if (detectPucker2Collision()) {
-
       final contactPoint = handlePucker2Collision();
       // print(contactPoint);
       if (contactPoint.x.isNegative) {
@@ -132,7 +131,7 @@ class PuckState extends ChangeNotifier {
     final vec.Vector2 contactPoint = direction * radiusA;
     return contactPoint;
   }
-  
+
   vec.Vector2 handlePucker2Collision() {
     // final normalizedOtherY = (world.height / 2) + p1State.pucker1Position.dy;
     final vec.Vector2 centerA =

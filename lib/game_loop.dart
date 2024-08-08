@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 
 class GameLoop extends ChangeNotifier {
   late Ticker _ticker;
-  final void Function(double ) draw;
+  final void Function(double) draw;
   GameLoop(this.draw) {
     _ticker = Ticker(_onTick);
     // _start();
@@ -16,7 +16,7 @@ class GameLoop extends ChangeNotifier {
   static const seconds = 1000; //milliseconds
 
   int get fps => 60;
-  int get targetFrameTime => seconds~/ fps;
+  int get targetFrameTime => seconds ~/ fps;
 
   GameState get state => _state;
   bool get isRunning => _state == GameState.resumed;
@@ -28,7 +28,7 @@ class GameLoop extends ChangeNotifier {
   }
 
   void _handleGameLoop(GameState st) {
-     if (st == GameState.paused) {
+    if (st == GameState.paused) {
       _pauseTicker();
     } else if (st == GameState.resumed) {
       _resumeTicker();

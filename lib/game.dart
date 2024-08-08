@@ -5,6 +5,7 @@ import 'package:hockey/palette.dart';
 import 'center_circle_with_line.dart';
 
 import 'package:flutter/scheduler.dart';
+import 'package:hockey/court_painter.dart';
 import 'package:hockey/game_loop.dart';
 import 'package:hockey/puck.dart';
 import 'package:hockey/scores_hud.dart';

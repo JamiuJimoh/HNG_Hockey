@@ -111,7 +111,7 @@ class _GameWorldState extends State<GameWorld> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     //had to initialize the theme Sound to test if the sound files work
-    ManageSound.playGameSound();
+    // ManageSound.playGameSound();
   }
 
   @override
