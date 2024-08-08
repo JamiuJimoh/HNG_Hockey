@@ -13,61 +13,60 @@ class ManageSound {
     await _gamePlayer.play(AssetSource('music/gamesound.mp3'));
   }
 
-  static void stopGameSound() {
-    _gamePlayer.stop();
+  static Future<void> stopGameSound() async {
+    await _gamePlayer.stop();
   }
 
-  static void pauseGameSound() {
-    _gamePlayer.pause();
+  static Future<void> pauseGameSound() async {
+    await _gamePlayer.pause();
   }
 
-  static void resumeGameSound() {
-    _gamePlayer.resume();
+  static Future<void> resumeGameSound() async {
+    await _gamePlayer.resume();
   }
 
-  static void menuClickSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/menuclick.wav'));
+  static Future<void> menuClickSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/menuclick.wav'));
   }
 
-  static void menuBackSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/menuback.wav'));
+  static Future<void> menuBackSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/menuback.wav'));
   }
 
-  static void playerHitPuckSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/playerhitpuck.mp3'));
+  static Future<void> playerHitPuckSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/playerhitpuck.mp3'));
   }
 
-  static void opHitPuckSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/ophitpuck.mp3'));
+  static Future<void> opHitPuckSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/ophitpuck.mp3'));
   }
 
-  static void puckHitBoundrySound() {
-    _eftsPlayer.play(AssetSource('sound_efts/puckhitsides.wav'));
+  static Future<void> puckHitBoundrySound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/puckhitsides.wav'));
   }
 
-  static void playerScoresSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/playerscores.wav'));
+  static Future<void> playerScoresSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/playerscores.wav'));
   }
 
-  static void opScoresSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/opscores.wav'));
+  static Future<void> opScoresSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/opscores.wav'));
   }
 
-  static void gameOverSound() {
-    _eftsPlayer.play(AssetSource('sound_efts/gameover.wav'));
+  static Future<void> gameOverSound() async {
+    await _eftsPlayer.play(AssetSource('sound_efts/gameover.wav'));
   }
 
-
-    static void stopGameEftsSound() {
-    _gamePlayer.stop();
+  static Future<void> stopGameEftsSound() async {
+    await _gamePlayer.stop();
   }
 
-  static void pauseGameEftsSound() {
-    _gamePlayer.pause();
+  static Future<void> pauseGameEftsSound() async {
+    await _gamePlayer.pause();
   }
 
-  static void resumeGameEftsSound() {
-    _gamePlayer.resume();
+  static Future<void> resumeGameEftsSound() async {
+    await _gamePlayer.resume();
   }
 }
 
@@ -100,18 +99,30 @@ class GameWorld extends StatefulWidget {
   State<GameWorld> createState() => _GameWorldState();
 }
 
-class _GameWorldState extends State<GameWorld> {
+class _GameWorldState extends State<GameWorld> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     //had to initialize the theme Sound to test if the sound files work
     ManageSound.playGameSound();
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     ManageSound.stopGameSound();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.paused) {
+      ManageSound.pauseGameSound();
+    } else if (state == AppLifecycleState.resumed) {
+      ManageSound.resumeGameSound();
+    }
   }
 
   @override
