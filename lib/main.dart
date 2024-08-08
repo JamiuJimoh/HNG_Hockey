@@ -35,7 +35,7 @@ class GameWorld extends StatelessWidget {
       backgroundColor: Palette.bg,
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 30.0),
+          margin: const EdgeInsets.symmetric(vertical: 100.0, horizontal: 20.0),
           decoration: BoxDecoration(
             border: Border.all(color: Palette.player, width: 5),
           ),

@@ -9,8 +9,7 @@ class Pucker1State extends ChangeNotifier {
     required this.boundaryLineHeight,
     required this.world,
   }) {
-    _pucker1Position =
-        Offset((world.width / 2) - puckerRadius, world.height - puckerSize);
+    _pucker1Position = Offset((world.width / 2), world.height - puckerRadius);
   }
   double get puckerSize => 55.0;
   double get puckerRadius => puckerSize / 2;
@@ -23,15 +22,15 @@ class Pucker1State extends ChangeNotifier {
   // where it's being tapped or dragged.
   // Using this trick to push the point to the bottomCenter of the
   // pucker.
-  double get cursorYOffset => puckerSize;
-  double get cursorXOffset => puckerSize / 2;
+  double get cursorYOffset => puckerRadius;
+  double get cursorXOffset => puckerRadius / 8;
 
   PuckerBoundaries get player1Boundaries {
     return PuckerBoundaries(
-      left: 0 + cursorXOffset,
-      right: world.width - puckerSize + cursorXOffset,
-      top: (-boundaryLineHeight - puckerRadius) + cursorYOffset,
-      bottom: world.height - puckerSize + (cursorXOffset * 2),
+      left: 0 + cursorXOffset + puckerRadius,
+      right: world.width - puckerRadius + cursorXOffset,
+      top: cursorYOffset - boundaryLineHeight,
+      bottom: world.height - puckerRadius + cursorYOffset,
     );
   }
 

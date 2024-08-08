@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'pucker.dart';
@@ -9,7 +11,7 @@ class Pucker2State extends ChangeNotifier {
     required this.boundaryLineHeight,
     required this.world,
   }) {
-    _pucker2Position = Offset((world.width / 2) - puckerRadius, 0);
+    _pucker2Position = Offset((world.width / 2), puckerRadius);
   }
   double get puckerSize => 55.0;
   double get puckerRadius => puckerSize / 2;
@@ -17,23 +19,20 @@ class Pucker2State extends ChangeNotifier {
   var _pucker2Position = const Offset(0, 0);
   Offset get pucker2Position => _pucker2Position;
 
-  // a subtle detail... 
+  // a subtle detail...
   // the pucker is aligned by the topLeft "FROM" the pointer.
   // where it's being tapped or dragged.
   // Using this trick to push the point to the topCenter of the
-  // pucker. 
-  double get cursorYOffset => 0;
-  double get cursorXOffset => puckerSize / 2;
+  // pucker.
+  double get cursorYOffset => -puckerRadius;
+  double get cursorXOffset => -(puckerRadius / 8);
 
   PuckerBoundaries get player2Boundaries {
     return PuckerBoundaries(
-      left: 0 + cursorXOffset,
-      right: world.width - puckerSize + cursorXOffset,
+      left: 0 + cursorXOffset + puckerRadius,
+      right: world.width - puckerRadius + cursorXOffset,
       top: 0,
-      bottom: world.height -
-          boundaryLineHeight -
-          puckerRadius +
-          (cursorYOffset / 2),
+      bottom: world.height + cursorYOffset,
     );
   }
 

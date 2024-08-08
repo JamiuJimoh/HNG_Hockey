@@ -1,8 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:hockey/palette.dart';
 
-class Pucker extends StatelessWidget {
-  const Pucker({
+class Puck extends StatelessWidget {
+  const Puck({
     super.key,
     required this.size,
     required this.x,
@@ -23,30 +24,20 @@ class Pucker extends StatelessWidget {
       padding: const EdgeInsets.all(11),
       transform: Matrix4.translationValues(x, y, 0),
       decoration: BoxDecoration(
-        color: color ?? Palette.player,
+        color:color?? Palette.player,
         borderRadius: BorderRadius.circular(size),
-      ),
-      child: Container(
-        // height: 30.0,
-        // width: 30.0,
-        alignment: Alignment.center,
-
-        decoration: BoxDecoration(
-          color: Palette.bg,
-          borderRadius: BorderRadius.circular(size),
-        ),
       ),
     );
   }
 }
 
-class PuckerBoundaries {
+class PuckBoundaries {
   final double left;
   final double right;
   final double top;
   final double bottom;
 
-  PuckerBoundaries(
+  PuckBoundaries(
       {required this.left,
       required this.right,
       required this.top,
