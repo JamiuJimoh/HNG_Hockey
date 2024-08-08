@@ -12,6 +12,7 @@ import 'package:hockey/scores_hud.dart';
 import 'package:provider/provider.dart';
 
 import 'center_circle_with_line.dart';
+import 'manage_sound.dart';
 import 'palette.dart';
 import 'puck_play_area.dart';
 import 'puck_state.dart';
@@ -21,8 +22,20 @@ import 'pucker1_state.dart';
 import 'pucker2_play_area.dart';
 import 'pucker2_state.dart';
 
-class Game extends StatelessWidget {
+class Game extends StatefulWidget {
   const Game({super.key});
+
+  @override
+  State<Game> createState() => _GameState();
+}
+
+class _GameState extends State<Game> {
+  @override
+  void initState() {
+    super.initState();
+
+    ManageSound.stopGameSound();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -2,11 +2,24 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:hockey/animation.dart';
+import 'package:hockey/manage_sound.dart';
 import 'package:hockey/menu.dart';
 import 'package:lottie/lottie.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    ManageSound.playGameSound();
+  }
 
   @override
   Widget build(BuildContext context) {

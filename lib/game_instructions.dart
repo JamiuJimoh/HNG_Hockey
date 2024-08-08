@@ -1,9 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:hockey/animation.dart';
-import 'package:hockey/menu.dart';
+import 'package:hockey/menu_button.dart';
 
 class GameInstructions extends StatelessWidget {
+  const GameInstructions({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,20 +13,19 @@ class GameInstructions extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              "assets/images/stadium.png", 
+              "assets/images/stadium.png",
               fit: BoxFit.cover,
             ),
           ),
           Container(
             width: double.infinity,
             height: double.infinity,
-            color: Colors.white.withOpacity(0.3), 
+            color: Colors.white.withOpacity(0.3),
           ),
           Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 30.0), 
+                padding: const EdgeInsets.only(top: 30.0),
                 child: Center(
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -49,7 +50,7 @@ class GameInstructions extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(), 
+              const Spacer(),
               const Center(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
@@ -60,19 +61,14 @@ class GameInstructions extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(), 
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(25),
-                child: _buildButton(
+                child: MenuButton(
                   text: 'Back',
                   icon: Icons.arrow_back,
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Menu(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
               ),
@@ -134,7 +130,6 @@ class GameInstructions extends StatelessWidget {
             colors: [
               Color.fromARGB(255, 154, 184, 243),
               Color.fromARGB(255, 208, 223, 238)
-              
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

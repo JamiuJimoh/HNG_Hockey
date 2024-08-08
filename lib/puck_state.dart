@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hockey/main.dart';
+import 'package:hockey/manage_sound.dart';
 import 'package:hockey/pucker1_state.dart';
 import 'package:vector_math/vector_math.dart' as vec;
 
@@ -69,6 +70,7 @@ class PuckState extends ChangeNotifier {
     }
 
     if (detectPucker1Collision()) {
+      ManageSound.playerHitPuckSound();
       final contactPoint = handlePucker1Collision();
       if (contactPoint.x.isNegative) {
         x = puckPosition.dx - (_velocity * deltaTime);
@@ -82,6 +84,7 @@ class PuckState extends ChangeNotifier {
         y = (puckPosition.dy) + (_velocity * deltaTime);
       }
     } else if (detectPucker2Collision()) {
+      ManageSound.opHitPuckSound();
       final contactPoint = handlePucker2Collision();
       // print(contactPoint);
       if (contactPoint.x.isNegative) {
