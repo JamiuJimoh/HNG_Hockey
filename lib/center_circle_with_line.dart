@@ -21,7 +21,7 @@ class CenterCircleWithLine extends StatelessWidget {
         Container(
           height: boundaryLineHeight,
           width: double.infinity,
-          color: Palette.player,
+          color: Palette.player.withOpacity(0.3),
           transform: Matrix4.translationValues(0, linePositon, 0),
         ),
         Container(
@@ -29,7 +29,10 @@ class CenterCircleWithLine extends StatelessWidget {
           width: circleSize,
           decoration: BoxDecoration(
             color: Colors.transparent,
-            border: Border.all(width: 3.0, color: Palette.player),
+            border: Border.all(
+              width: 3.0,
+              color: Palette.player.withOpacity(0.3),
+            ),
             borderRadius: BorderRadius.circular(circleSize),
           ),
           transform: Matrix4.translationValues(

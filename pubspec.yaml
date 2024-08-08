@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   lottie: ^3.1.2
   provider: ^6.1.2
+  audioplayers: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +26,12 @@ flutter:
   assets:
     - "assets/Lottie/"
     - "assets/images/"
+    - assets/music/gamesound.mp3
+    - assets/sound_efts/menuclick.wav
+    - assets/sound_efts/menuback.wav
+    - assets/sound_efts/playerhitpuck.mp3
+    - assets/sound_efts/ophitpuck.mp3
+    - assets/sound_efts/puckhitsides.wav
+    - assets/sound_efts/playerscores.wav
+    - assets/sound_efts/opscores.wav
+    - assets/sound_efts/gameover.wav
