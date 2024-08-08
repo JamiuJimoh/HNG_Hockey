@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hockey/palette.dart';
+import 'package:hockey/splash_screen.dart';
+
 import 'package:audioplayers/audioplayers.dart';
 
 import 'game.dart';
@@ -88,7 +90,11 @@ class Hockey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(body: GameWorld()),
+      home: Scaffold(
+        body:
+            // GameWorld(),
+            SplashScreen(),
+      ),
     );
   }
 }

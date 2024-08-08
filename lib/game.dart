@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+
+import 'package:hockey/palette.dart';
+
+import 'center_circle_with_line.dart';
+
 import 'package:flutter/scheduler.dart';
 import 'package:hockey/game_loop.dart';
 import 'package:hockey/puck.dart';
@@ -9,6 +14,7 @@ import 'center_circle_with_line.dart';
 import 'palette.dart';
 import 'puck_play_area.dart';
 import 'puck_state.dart';
+
 import 'pucker1_play_area.dart';
 import 'pucker1_state.dart';
 import 'pucker2_play_area.dart';
