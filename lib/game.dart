@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:hockey/palette.dart';
 
 import 'center_circle_with_line.dart';
-import 'palette.dart';
+
 import 'pucker1_play_area.dart';
 import 'pucker2_play_area.dart';
 
@@ -16,7 +16,13 @@ class Game extends StatelessWidget {
         return Container(
           height: constraints.maxHeight,
           width: constraints.maxWidth,
-          color: Palette.bg,
+          // color: Palette.bg,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/bg.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Stack(
             children: [
               CenterCircleWithLine(
