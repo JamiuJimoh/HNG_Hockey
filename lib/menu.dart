@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:hockey/animation.dart';
 import 'package:hockey/game_instructions.dart';
+import 'package:hockey/manage_sound.dart';
 import 'package:hockey/select_game.dart';
 
 import 'menu_button.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatefulWidget {
   const Menu({super.key});
+
+  @override
+  State<Menu> createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> with WidgetsBindingObserver {
+    @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    ManageSound.stopGameSound();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:hockey/animation.dart';
+import 'package:hockey/main.dart';
 import 'package:hockey/menu_button.dart';
 
 import 'package:hockey/select_game.dart';
@@ -80,22 +81,50 @@ class Difficulty extends StatelessWidget {
               const SizedBox(height: 30),
               MenuButton(
                 text: 'Easy',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GameWorld(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 20),
               MenuButton(
                 text: 'Medium',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GameWorld(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 20),
               MenuButton(
                 text: 'Hard',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GameWorld(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 20),
               MenuButton(
                 text: 'Insane',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GameWorld(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 20),
               MenuButton(
