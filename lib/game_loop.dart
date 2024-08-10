@@ -6,10 +6,10 @@ class GameLoop extends ChangeNotifier {
   final void Function(double) draw;
   GameLoop(this.draw) {
     _ticker = Ticker(_onTick);
-    // _start();
+    _start();
   }
 
-  var _state = GameState.ended;
+  var _state = GameState.resumed;
   var _lastTick = Duration.zero;
 
   static const seconds = 1000; 

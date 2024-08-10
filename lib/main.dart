@@ -27,7 +27,7 @@ class Hockey extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         // body: SplashScreen(),
-        body: GameWorld(),
+        body: SplashScreen(),
       ),
     );
   }

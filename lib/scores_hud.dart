@@ -35,6 +35,15 @@ class ScoresHUD extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10.0),
+
+          GestureDetector(
+            onTap: ()=>Navigator.pop(context),
+            child: Icon(
+              Icons.stop,
+              color: Palette.player,
+              size: 50,
+            ),
+          ),
           // Text(
           //   scoreState.pucker1Score.toString(),
           //   style: TextStyle(color: Palette.player, fontSize: 24),

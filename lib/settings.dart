@@ -26,29 +26,25 @@ class Settings extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
+              const Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30.0),
-                  child: AnimatedTextKit(
-                    animatedTexts: [
-                      TyperAnimatedText(
-                        'Settings',
-                        textAlign: TextAlign.center,
-                        textStyle: const TextStyle(
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 50,
-                          color: Color.fromARGB(255, 191, 241, 250),
-                          shadows: [
-                            Shadow(
-                              blurRadius: 5.0,
-                              color: Colors.black,
-                              offset: Offset(2.0, 2.0),
-                            ),
-                          ],
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: Text(
+                    'Settings',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
+                      color: Color.fromARGB(255, 191, 241, 250),
+                      shadows: [
+                        Shadow(
+                          blurRadius: 5.0,
+                          color: Colors.black,
+                          offset: Offset(2.0, 2.0),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

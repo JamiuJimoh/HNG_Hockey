@@ -54,18 +54,18 @@ class SelectGame extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-              MenuButton(
-                text: '1 Player',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Difficulty(),
-                    ),
-                  );
-                },
-              ),
+              // const SizedBox(height: 20),
+              // MenuButton(
+              //   text: '1 Player',
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => Difficulty(),
+              //       ),
+              //     );
+              //   },
+              // ),
               const SizedBox(height: 20),
               MenuButton(
                 text: '2 Players',
