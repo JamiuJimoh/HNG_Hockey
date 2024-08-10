@@ -11,9 +11,8 @@ class GameLoop extends ChangeNotifier {
 
   var _state = GameState.ended;
   var _lastTick = Duration.zero;
-  var _pauseElapsed = Duration.zero;
 
-  static const seconds = 1000; //milliseconds
+  static const seconds = 1000; 
 
   int get fps => 60;
   int get targetFrameTime => seconds ~/ fps;
@@ -29,9 +28,9 @@ class GameLoop extends ChangeNotifier {
 
   void _handleGameLoop(GameState st) {
     if (st == GameState.paused) {
-      _pauseTicker();
+      _stop();
     } else if (st == GameState.resumed) {
-      _resumeTicker();
+      _start();
     } else if (st == GameState.ended) {
       _stop();
       dispose();
@@ -40,35 +39,11 @@ class GameLoop extends ChangeNotifier {
 
   void _onTick(Duration elapsed) {
     if (_state == GameState.paused) return;
-    final deltaTime = (elapsed - _lastTick).inMilliseconds;
-    if (deltaTime < targetFrameTime) return;
+    final deltaTime = (elapsed - _lastTick);
+    _lastTick += deltaTime;
+    if (deltaTime.inMilliseconds < targetFrameTime) return;
 
-    draw(deltaTime / seconds);
-    _lastTick = elapsed;
-  }
-
-  void _pauseTicker() {
-    // if (_state == GameState.paused) return;
-    _pauseElapsed = _lastTick;
-    _state = GameState.paused;
-    _stop();
-    // notifyListeners();
-  }
-
-  void _resumeTicker() {
-    // if (_state != GameState.paused) return;
-    // if (_pauseElapsed != Duration.zero) {
-    //   final pausedDuration =
-    //       Duration(milliseconds: DateTime.now().millisecondsSinceEpoch) -
-    //           _pauseElapsed;
-    //   _lastTick = pausedDuration;
-    // }
-    _state = GameState.resumed;
-
-    // print(_lastTick.inMilliseconds);
-    // print(_pauseElapsed.inMilliseconds);
-    _lastTick = _pauseElapsed;
-    _start();
+    draw(deltaTime.inMilliseconds / seconds);
   }
 
   void _start() {

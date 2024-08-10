@@ -24,6 +24,11 @@ class Pucker1PlayArea extends StatelessWidget {
             //   p1.pucker1Position.dy,
             //   p1.puckerRadius,
             // );
+            // print(details.localPosition);
+          },
+          onPanDown: (details){
+
+            // print(details.localPosition);
           },
           onPanUpdate: (details) {
             p1.pucker1Position = details.localPosition;
@@ -31,7 +36,13 @@ class Pucker1PlayArea extends StatelessWidget {
             //   p1.pucker1Position.dx,
             //   p1.pucker1Position.dy,
             //   p1.puckerRadius,
+            // print('=======================');
+            // print(p1.pucker1PrevPosition);
+            // print(p1.pucker1Position);
+            // print('=======================');
             // );
+          },
+          onPanEnd: (details) {
           },
           child: Container(
             color: Colors.transparent,

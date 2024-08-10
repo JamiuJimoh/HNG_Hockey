@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hockey/game_score_state.dart';
 import 'package:hockey/palette.dart';
+import 'package:provider/provider.dart';
 
 class ScoresHUD extends StatelessWidget {
   const ScoresHUD({
@@ -12,15 +14,17 @@ class ScoresHUD extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scoreState = context.watch<GameScoreState>();
+
     return Container(
       alignment: Alignment.centerRight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            '0',
-            style: TextStyle(color: Palette.player, fontSize: 24),
-          ),
+          // Text(
+          //   scoreState.pucker2Score.toString(),
+          //   style: TextStyle(color: Palette.player, fontSize: 24),
+          // ),
           const SizedBox(height: 10.0),
           GestureDetector(
             onTap: onTap,
@@ -31,13 +35,12 @@ class ScoresHUD extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10.0),
-          Text(
-            '0',
-            style: TextStyle(color: Palette.player, fontSize: 24),
-          ),
+          // Text(
+          //   scoreState.pucker1Score.toString(),
+          //   style: TextStyle(color: Palette.player, fontSize: 24),
+          // ),
         ],
       ),
     );
   }
 }
-

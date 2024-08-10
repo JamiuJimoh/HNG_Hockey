@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/material.dart';
 import 'package:hockey/animation.dart';
-import 'package:hockey/game_instructions.dart';
-import 'package:hockey/select_game.dart';
-import 'package:hockey/settings.dart';
+import 'package:hockey/manage_sound.dart';
+import 'package:hockey/menu_button.dart';
 
-import 'menu_button.dart';
-
-class Menu extends StatelessWidget {
-  const Menu({super.key});
+class Settings extends StatelessWidget {
+  const Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class Menu extends StatelessWidget {
                   child: AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
-                        'PUCK DUEL',
+                        'Settings',
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(
                           fontFamily: 'Roboto',
@@ -57,40 +54,20 @@ class Menu extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               MenuButton(
-                text: 'Start Game',
+                text: 'Turn off sound',
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SelectGame(),
-                    ),
-                  );
+                  ManageSound.stopGameSound();
                 },
               ),
               const SizedBox(height: 20),
               MenuButton(
-                text: 'Instructions',
+                text: 'Back',
+                icon: Icons.arrow_back,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GameInstructions(),
-                    ),
-                  );
+                  Navigator.pop(context);
                 },
               ),
               const SizedBox(height: 20),
-              MenuButton(
-                text: 'Settings',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Settings(),
-                    ),
-                  );
-                },
-              ),
             ],
           ),
           Positioned(

@@ -27,11 +27,29 @@ class Pucker2State extends ChangeNotifier {
   double get cursorYOffset => -puckerRadius;
   double get cursorXOffset => -(puckerRadius / 8);
 
+  // bool get inGoal {
+  //   final postStart = world.width * 1 / 3;
+  //   final postEnd = world.width * 2 / 3;
+  //   if (pucker2Position.dx >= postStart && pucker2Position.dx <= postEnd) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
+  //
+  // double get puck2GoalBoundary {
+  //   var b = 0.0;
+  //   if (inGoal) {
+  //     b = -puckerRadius;
+  //   }
+  //   return b;
+  // }
+
   PuckerBoundaries get player2Boundaries {
     return PuckerBoundaries(
       left: 0 + cursorXOffset + puckerRadius,
       right: world.width - puckerRadius + cursorXOffset,
       top: 0,
+      // top: puck2GoalBoundary,
       bottom: world.height + cursorYOffset,
     );
   }

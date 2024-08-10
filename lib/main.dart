@@ -26,7 +26,8 @@ class Hockey extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: SplashScreen(),
+        // body: SplashScreen(),
+        body: GameWorld(),
       ),
     );
   }
@@ -73,7 +74,7 @@ class _GameWorldState extends State<GameWorld> with WidgetsBindingObserver {
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 100.0, horizontal: 20.0),
           decoration: BoxDecoration(
-            border: Border.all(color: Palette.player, width: 5),
+            // border: Border.all(color: Palette.player, width: 2),
           ),
           child: const Game(),
         ),
